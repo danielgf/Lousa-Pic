@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import CoreData
 
 class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate {
     
     //Variables for our code
-    
-    // Retreive the managedObjectContext from AppDelegate
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
     
     //Image Picker for our camera
     let imagePicker:UIImagePickerController = UIImagePickerController()
@@ -43,11 +40,6 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
         //Delegate our imagePicker to hisself
         imagePicker.delegate = self
         
-        //Core Data
-        
-        // Print it to the console
-        print(managedObjectContext)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,12 +49,8 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     //Action for our buttons in the screen
     @IBAction func save(sender: UIBarButtonItem) {
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(AddViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
-        }
+        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(AddViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         //We take the text who has into textField and put inside core data
-        
-        saveIntoCoreData()
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
@@ -89,25 +77,6 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     
     //Functions
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        //Create a new fetch request using the Ingo entity
-//        let fetchRequest = NSFetchRequest(entityName:"Info")
-//        
-//        //Execute the fetch request, and cast the results to an array of Info objects
-//        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchRequest)) as? [Info]{
-//            
-//            // Create an Alert, and set it's message to whatever the itemText is
-//            let alert = UIAlertController(title: fetchResults[0].materia, message: fetchResults[0].observacoes, preferredStyle: .Alert)
-//            
-//            //Diplay the alert
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            
-//        }
-//        
-//    }
     
     //Func to dimiss the keyboard
     func dismissKeyboard(){
