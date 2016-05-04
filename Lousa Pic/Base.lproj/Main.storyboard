@@ -47,7 +47,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="ug7-My-X5n" id="kd3-T9-8Z7"/>
                     </connections>
@@ -113,10 +112,16 @@
                     <navigationItem key="navigationItem" title="Viewing" id="bXP-Ua-Iud">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="rKL-cs-fgt">
                             <connections>
+                                <action selector="edit:" destination="wRV-oL-1Uh" id="63J-gA-dQo"/>
                                 <segue destination="tsm-ft-85I" kind="show" id="w4s-ue-p2C"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="5Bs-6s-gMY" id="Egp-Rb-6x2"/>
+                        <outlet property="textLabel" destination="1Kb-Vz-bVY" id="lpY-yO-m0U"/>
+                        <outlet property="textView" destination="Bfa-LI-eIh" id="5zd-6M-LOZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbh-rb-n1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,16 +172,37 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="odZ-xc-fmW"/>
+                        <barButtonItem systemItem="camera" id="odZ-xc-fmW">
+                            <connections>
+                                <action selector="takePicture:" destination="tsm-ft-85I" id="Wt0-OR-wQC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="rLc-k6-59F"/>
-                        <barButtonItem systemItem="bookmarks" id="ztB-ZD-C0g"/>
+                        <barButtonItem systemItem="bookmarks" id="ztB-ZD-C0g">
+                            <connections>
+                                <action selector="libraryPhoto:" destination="tsm-ft-85I" id="zeI-8Y-Cnf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="hYw-ee-yIm"/>
-                        <barButtonItem systemItem="cancel" id="Uzw-3v-IBm"/>
+                        <barButtonItem systemItem="cancel" id="Uzw-3v-IBm">
+                            <connections>
+                                <action selector="cancel:" destination="tsm-ft-85I" id="i0n-Ab-TPu"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Edditing" id="1bg-nU-6Eg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DmI-2g-ZQv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DmI-2g-ZQv">
+                            <connections>
+                                <action selector="save:" destination="tsm-ft-85I" id="v8G-RT-sM9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="e4z-HL-Iqj" id="pim-Hb-CXt"/>
+                        <outlet property="textField" destination="BI3-Lf-PPn" id="yQ4-7M-uxL"/>
+                        <outlet property="textView" destination="Urf-ar-4Ub" id="9S9-Uo-W1W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GP-Zz-gRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +223,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Matéria" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnK-di-YpT">
                                 <rect key="frame" x="20" y="195" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-5L-V6n">
                                 <rect key="frame" x="20" y="227" width="560" height="321"/>
@@ -227,18 +253,43 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="2dh-27-0Ug"/>
+                        <barButtonItem systemItem="camera" id="2dh-27-0Ug">
+                            <connections>
+                                <action selector="takePicture:" destination="jAZ-F1-qEi" id="Fmb-bF-BDk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="qNH-ri-jPR"/>
-                        <barButtonItem systemItem="bookmarks" id="5ph-If-3Q5"/>
+                        <barButtonItem systemItem="bookmarks" id="5ph-If-3Q5">
+                            <connections>
+                                <action selector="chooseFromLibrary:" destination="jAZ-F1-qEi" id="zGd-j0-Ec9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="FAa-tM-gJa"/>
-                        <barButtonItem systemItem="cancel" id="wX6-60-O7P"/>
+                        <barButtonItem systemItem="cancel" id="wX6-60-O7P">
+                            <connections>
+                                <action selector="cancel:" destination="jAZ-F1-qEi" id="mOx-DK-FWw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0kf-oN-g6s"/>
-                        <barButtonItem systemItem="trash" id="gWg-9c-mQp"/>
+                        <barButtonItem systemItem="trash" id="gWg-9c-mQp">
+                            <connections>
+                                <action selector="clean:" destination="jAZ-F1-qEi" id="f50-Xg-ko1"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Adding" id="hwS-Xq-C7Y">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JDb-2p-ntk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JDb-2p-ntk">
+                            <connections>
+                                <action selector="save:" destination="jAZ-F1-qEi" id="3Pd-jU-4p6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="doW-sD-hsP" id="3ND-Of-Emi"/>
+                        <outlet property="textField" destination="jnK-di-YpT" id="H51-wU-hyE"/>
+                        <outlet property="textView" destination="UIl-5L-V6n" id="B0r-ma-VvM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbx-c9-SXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +298,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sGv-lW-qhe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="stx-ez-vb7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="stx-ez-vb7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kX7-bQ-HgW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
