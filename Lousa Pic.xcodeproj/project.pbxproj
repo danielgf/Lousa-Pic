@@ -12,13 +12,15 @@
 		65BA272F1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65BA272D1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld */; };
 		65BA27311CD92DFE00F97054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65BA27301CD92DFE00F97054 /* Assets.xcassets */; };
 		65BA27341CD92DFE00F97054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BA27321CD92DFE00F97054 /* LaunchScreen.storyboard */; };
-		65BA273C1CD9350500F97054 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA273B1CD9350500F97054 /* TableViewCell.swift */; };
-		65BA273E1CD9352B00F97054 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA273D1CD9352B00F97054 /* TableView.swift */; };
 		65BA27411CD9355D00F97054 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27401CD9355D00F97054 /* AddViewController.swift */; };
-		65BA27431CD9356F00F97054 /* EditViewControllwe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27421CD9356F00F97054 /* EditViewControllwe.swift */; };
-		65BA27451CD9358800F97054 /* LookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27441CD9358800F97054 /* LookViewController.swift */; };
 		65BA27481CD935CE00F97054 /* CameraReal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27471CD935CE00F97054 /* CameraReal.swift */; };
 		65BA274A1CD935DD00F97054 /* LibraryCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27491CD935DD00F97054 /* LibraryCamera.swift */; };
+		65F9697F1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */; };
+		65F969801CDA5E97000B951D /* LousaPicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */; };
+		65F969841CDA6BB2000B951D /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969831CDA6BB2000B951D /* MyTableViewController.swift */; };
+		65F969861CDA6BE4000B951D /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969851CDA6BE4000B951D /* MyTableViewCell.swift */; };
+		65F969881CDA6C4D000B951D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969871CDA6C4D000B951D /* EditViewController.swift */; };
+		65F9698A1CDA6C64000B951D /* LookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969891CDA6C64000B951D /* LookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +31,15 @@
 		65BA27301CD92DFE00F97054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65BA27331CD92DFE00F97054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65BA27351CD92DFE00F97054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65BA273B1CD9350500F97054 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		65BA273D1CD9352B00F97054 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		65BA27401CD9355D00F97054 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		65BA27421CD9356F00F97054 /* EditViewControllwe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewControllwe.swift; sourceTree = "<group>"; };
-		65BA27441CD9358800F97054 /* LookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookViewController.swift; sourceTree = "<group>"; };
 		65BA27471CD935CE00F97054 /* CameraReal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraReal.swift; sourceTree = "<group>"; };
 		65BA27491CD935DD00F97054 /* LibraryCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCamera.swift; sourceTree = "<group>"; };
+		65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LousaPicInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LousaPicInfo.swift; sourceTree = "<group>"; };
+		65F969831CDA6BB2000B951D /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		65F969851CDA6BE4000B951D /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		65F969871CDA6C4D000B951D /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		65F969891CDA6C64000B951D /* LookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +88,8 @@
 		65BA273F1CD9353900F97054 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				65BA273B1CD9350500F97054 /* TableViewCell.swift */,
-				65BA273D1CD9352B00F97054 /* TableView.swift */,
+				65F969831CDA6BB2000B951D /* MyTableViewController.swift */,
+				65F969851CDA6BE4000B951D /* MyTableViewCell.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -94,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				65BA27401CD9355D00F97054 /* AddViewController.swift */,
-				65BA27421CD9356F00F97054 /* EditViewControllwe.swift */,
-				65BA27441CD9358800F97054 /* LookViewController.swift */,
+				65F969871CDA6C4D000B951D /* EditViewController.swift */,
+				65F969891CDA6C64000B951D /* LookViewController.swift */,
 			);
 			name = "Add, Edit, Look";
 			sourceTree = "<group>";
@@ -112,6 +116,8 @@
 		65BA27501CD93A7300F97054 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */,
+				65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */,
 				65BA272D1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -191,13 +197,15 @@
 			files = (
 				65BA274A1CD935DD00F97054 /* LibraryCamera.swift in Sources */,
 				65BA27481CD935CE00F97054 /* CameraReal.swift in Sources */,
-				65BA273E1CD9352B00F97054 /* TableView.swift in Sources */,
+				65F969801CDA5E97000B951D /* LousaPicInfo.swift in Sources */,
+				65F969861CDA6BE4000B951D /* MyTableViewCell.swift in Sources */,
 				65BA27411CD9355D00F97054 /* AddViewController.swift in Sources */,
-				65BA273C1CD9350500F97054 /* TableViewCell.swift in Sources */,
-				65BA27431CD9356F00F97054 /* EditViewControllwe.swift in Sources */,
+				65F9697F1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift in Sources */,
+				65F9698A1CDA6C64000B951D /* LookViewController.swift in Sources */,
+				65F969841CDA6BB2000B951D /* MyTableViewController.swift in Sources */,
 				65BA272F1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld in Sources */,
 				65BA27271CD92DFE00F97054 /* AppDelegate.swift in Sources */,
-				65BA27451CD9358800F97054 /* LookViewController.swift in Sources */,
+				65F969881CDA6C4D000B951D /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

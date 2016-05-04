@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
-class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate {
+class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,NSFetchedResultsControllerDelegate {
     
     //Variables for our code
-
+    //Create this to reference our dataBase
+    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var item: LousaPicInfo? = nil
     
     //Image Picker for our camera
     let imagePicker:UIImagePickerController = UIImagePickerController()
     
     //Outputs from our screen
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,8 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
         //Delegate our imagePicker to hisself
         imagePicker.delegate = self
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,16 +56,20 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     //Action for our buttons in the screen
     @IBAction func save(sender: UIBarButtonItem) {
-        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(AddViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+        createItem()
+        dismissVC()
+
+//        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(AddViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         //We take the text who has into textField and put inside core data
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+        dismissVC()
     }
     
     @IBAction func clean(sender: UIBarButtonItem) {
-        imageView.image = nil
+        imageView.image = UIImage(named: "retouche-photo")
         textView.text = nil
         textField.text = ""
         if (textView.text == "") {
@@ -116,6 +127,31 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
                                       preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func dismissVC(){
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func createItem(){
+        
+        let entityDescription = NSEntityDescription.entityForName("LuosaPicInfo", inManagedObjectContext: moc)
+        
+        let item = LousaPicInfo(entity: entityDescription!, insertIntoManagedObjectContext: moc)
+        
+        item.materia = textField.text
+        item.observacoes = textView.text
+        item.date = dateField.text
+        item.image = UIImagePNGRepresentation(imageView.image!)
+        
+        do{
+            try moc.save()
+        }catch{
+            print("Failed save.")
+            return
+        }
+        
     }
     
     
