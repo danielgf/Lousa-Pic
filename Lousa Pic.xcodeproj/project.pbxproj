@@ -15,8 +15,8 @@
 		65BA27411CD9355D00F97054 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27401CD9355D00F97054 /* AddViewController.swift */; };
 		65BA27481CD935CE00F97054 /* CameraReal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27471CD935CE00F97054 /* CameraReal.swift */; };
 		65BA274A1CD935DD00F97054 /* LibraryCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BA27491CD935DD00F97054 /* LibraryCamera.swift */; };
-		65F9697F1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */; };
-		65F969801CDA5E97000B951D /* LousaPicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */; };
+		65C5C5731CDBB65F00BCDD08 /* LousaPic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C5711CDBB65F00BCDD08 /* LousaPic+CoreDataProperties.swift */; };
+		65C5C5741CDBB65F00BCDD08 /* LousaPic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5C5721CDBB65F00BCDD08 /* LousaPic.swift */; };
 		65F969841CDA6BB2000B951D /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969831CDA6BB2000B951D /* MyTableViewController.swift */; };
 		65F969861CDA6BE4000B951D /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969851CDA6BE4000B951D /* MyTableViewCell.swift */; };
 		65F969881CDA6C4D000B951D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F969871CDA6C4D000B951D /* EditViewController.swift */; };
@@ -34,8 +34,8 @@
 		65BA27401CD9355D00F97054 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		65BA27471CD935CE00F97054 /* CameraReal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraReal.swift; sourceTree = "<group>"; };
 		65BA27491CD935DD00F97054 /* LibraryCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCamera.swift; sourceTree = "<group>"; };
-		65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LousaPicInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LousaPicInfo.swift; sourceTree = "<group>"; };
+		65C5C5711CDBB65F00BCDD08 /* LousaPic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LousaPic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65C5C5721CDBB65F00BCDD08 /* LousaPic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LousaPic.swift; sourceTree = "<group>"; };
 		65F969831CDA6BB2000B951D /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		65F969851CDA6BE4000B951D /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		65F969871CDA6C4D000B951D /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		65BA27501CD93A7300F97054 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				65F9697D1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift */,
-				65F9697E1CDA5E97000B951D /* LousaPicInfo.swift */,
+				65C5C5711CDBB65F00BCDD08 /* LousaPic+CoreDataProperties.swift */,
+				65C5C5721CDBB65F00BCDD08 /* LousaPic.swift */,
 				65BA272D1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -197,13 +197,13 @@
 			files = (
 				65BA274A1CD935DD00F97054 /* LibraryCamera.swift in Sources */,
 				65BA27481CD935CE00F97054 /* CameraReal.swift in Sources */,
-				65F969801CDA5E97000B951D /* LousaPicInfo.swift in Sources */,
 				65F969861CDA6BE4000B951D /* MyTableViewCell.swift in Sources */,
 				65BA27411CD9355D00F97054 /* AddViewController.swift in Sources */,
-				65F9697F1CDA5E97000B951D /* LousaPicInfo+CoreDataProperties.swift in Sources */,
 				65F9698A1CDA6C64000B951D /* LookViewController.swift in Sources */,
+				65C5C5731CDBB65F00BCDD08 /* LousaPic+CoreDataProperties.swift in Sources */,
 				65F969841CDA6BB2000B951D /* MyTableViewController.swift in Sources */,
 				65BA272F1CD92DFE00F97054 /* Lousa_Pic.xcdatamodeld in Sources */,
+				65C5C5741CDBB65F00BCDD08 /* LousaPic.swift in Sources */,
 				65BA27271CD92DFE00F97054 /* AppDelegate.swift in Sources */,
 				65F969881CDA6C4D000B951D /* EditViewController.swift in Sources */,
 			);

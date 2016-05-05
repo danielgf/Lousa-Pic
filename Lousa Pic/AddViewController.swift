@@ -12,10 +12,13 @@ import CoreData
 class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,NSFetchedResultsControllerDelegate {
     
     //Variables for our code
+    
     //Create this to reference our dataBase
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+    let dateNow = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .ShortStyle)
     
-    var item: LousaPicInfo? = nil
+    var item :LousaPic? = nil
     
     //Image Picker for our camera
     let imagePicker:UIImagePickerController = UIImagePickerController()
@@ -23,12 +26,12 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     //Outputs from our screen
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         //Delegate our imagePicker and textViewr to hisself
         imagePicker.delegate = self
         textView.delegate = self
@@ -45,7 +48,14 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
         //Delegate our imagePicker to hisself
         imagePicker.delegate = self
         
-        
+        if item != nil {
+            self.title = "Editing"
+            textField.text = item?.materia
+            textView.text = item?.observacoes
+            imageView.image = UIImage(data: (item?.image)!)
+        }else{
+            self.title = "Adding"
+        }
         
     }
     
@@ -57,7 +67,11 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     //Action for our buttons in the screen
     @IBAction func save(sender: UIBarButtonItem) {
         
-        createItem()
+        if item != nil {
+            editItem()
+        }else{
+            createItem()
+        }
         dismissVC()
 
 //        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(AddViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -131,19 +145,23 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     func dismissVC(){
         
-        navigationController?.popViewControllerAnimated(true)
+        if item != nil {
+            navigationController?.popToRootViewControllerAnimated(true)
+        }else{
+            navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     func createItem(){
         
-        let entityDescription = NSEntityDescription.entityForName("LuosaPicInfo", inManagedObjectContext: moc)
+        let entityDescription = NSEntityDescription.entityForName("LousaPic", inManagedObjectContext: moc)
         
-        let item = LousaPicInfo(entity: entityDescription!, insertIntoManagedObjectContext: moc)
+        let info = LousaPic(entity: entityDescription!, insertIntoManagedObjectContext: moc)
         
-        item.materia = textField.text
-        item.observacoes = textView.text
-        item.date = dateField.text
-        item.image = UIImagePNGRepresentation(imageView.image!)
+        info.materia = textField.text
+        info.observacoes = textView.text
+        info.date = dateNow
+        info.image = UIImagePNGRepresentation(imageView.image!)
         
         do{
             try moc.save()
@@ -154,18 +172,19 @@ class AddViewController: UIViewController,UIImagePickerControllerDelegate,UINavi
         
     }
     
-    
-    //Function save image into Library
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
-        if error == nil {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
-        } else {
-            let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
+    func editItem() {
+        
+        item?.materia = textField.text
+        item?.observacoes = textView.text
+        item?.image = UIImagePNGRepresentation(imageView.image!)
+        
+        do{
+            try moc.save()
+        }catch{
+            return
         }
+        dismissVC()
+        
     }
     
 }

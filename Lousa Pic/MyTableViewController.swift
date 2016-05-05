@@ -19,13 +19,12 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
     //Create this to stoge our results
     var fetchResultsController : NSFetchedResultsController = NSFetchedResultsController()
     
-    
     //Functions 
     
     //Func to request infos from our dataBase
     func fetchRequest() -> NSFetchRequest{
-        let fetchRequest = NSFetchRequest(entityName: "LuosaPicInfo")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let fetchRequest = NSFetchRequest(entityName: "LousaPic")
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         return fetchRequest
@@ -50,7 +49,8 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
             print("Falied to perform initial fetch.")
             return
         }
-        tableView.reloadData()
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +68,7 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
             print("Falied to perform initial fetch.")
             return
         }
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -91,16 +91,15 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyTableViewCell
         
         // Configure the cell...
         
-        let item = fetchResultsController.objectAtIndexPath(indexPath) as! LousaPicInfo
-        cell.textLabel?.text = item.materia
-        let date = item.date
-        let obs = item.observacoes
-        cell.detailTextLabel?.text = "Observações: \(obs!) Date: \(date!)"
-        cell.imageView?.image = UIImage(data: (item.image)!)
+        let item = fetchResultsController.objectAtIndexPath(indexPath) as! LousaPic
+        cell.materiaTextLabel.text = item.materia
+        cell.dateTextLabel.text = "\(item.date!)"
+        cell.obsTextLabel.text = item.observacoes
+        cell.myImageView.image = UIImage(data: (item.image)!)
 
         return cell
     }
@@ -116,16 +115,23 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let managedObject: NSManagedObject = fetchResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
-        moc.deleteObject(managedObject)
         
-        do{
-            try moc.save()
-        }catch{
-            print("Failed to save.")
-            return
+        let managedObject: NSManagedObject = fetchResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        
+        if editingStyle == .Delete {
+            
+            
+            moc.deleteObject(managedObject)
+            do{
+                try moc.save()
+            }catch{
+                print("Failed to save.")
+                return
+            }
         }
+        self.tableView.reloadData()
     }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -150,13 +156,12 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "editing" {
+        if segue.identifier == "look" {
             
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
-            let itemController:EditViewController = segue.destinationViewController as! EditViewController
-            let item : LousaPicInfo = fetchResultsController.objectAtIndexPath(indexPath!) as! LousaPicInfo
-            
+            let itemController:LookViewController = segue.destinationViewController as! LookViewController
+            let item : LousaPic = fetchResultsController.objectAtIndexPath(indexPath!) as! LousaPic
             itemController.item = item
             
         }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="LuosaPicInfo" representedClassName=".LousaPicInfo" syncable="YES">
+    <entity name="LousaPic" representedClassName=".LousaPic" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="materia" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="observacoes" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LuosaPicInfo" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="LousaPic" positionX="-45" positionY="0" width="128" height="105"/>
     </elements>
 </model>

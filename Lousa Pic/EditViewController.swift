@@ -12,16 +12,15 @@ import CoreData
 class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     //Variables code
-    var item :LousaPicInfo? = nil
+    var item :LousaPic? = nil
     
     //Create this to reference our dataBase
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     //Outlet
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var dateField: UITextField!
 
     //Functions
     override func viewDidLoad() {
@@ -30,8 +29,7 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
         // Do any additional setup after loading the view.
         textField.text = item?.materia
         textView.text = item?.observacoes
-        dateField.text = item?.date
-        imageView.image = UIImage(data: (item?.image)!)
+        myImageView.image = UIImage(data: (item?.image)!)
         
     }
 
@@ -41,22 +39,29 @@ class EditViewController: UIViewController,NSFetchedResultsControllerDelegate,UI
     }
 
     @IBAction func save(sender: UIBarButtonItem) {
+        editItem()
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissVC()
     }
     
     @IBAction func libraryPhoto(sender: UIBarButtonItem) {
     }
     
     @IBAction func cameraPhoto(sender: UIBarButtonItem) {
+        
+    }
+    
+    func dismissVC(){
+        
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func editItem(){
         item?.materia = textField.text
         item?.observacoes = textView.text
-        item?.date = dateField.text
-        item?.image = UIImagePNGRepresentation(imageView.image!)
+        item?.image = UIImagePNGRepresentation(myImageView.image!)
         
         do{
             try moc.save()
