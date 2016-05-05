@@ -93,6 +93,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mySearchBar" destination="eNg-XA-NmB" id="1Ai-Dc-qDk"/>
                         <outlet property="searchDisplayController" destination="ug7-My-X5n" id="kd3-T9-8Z7"/>
                     </connections>
                 </tableViewController>

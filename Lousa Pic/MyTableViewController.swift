@@ -12,6 +12,7 @@ import CoreData
 class MyTableViewController: UITableViewController,NSFetchedResultsControllerDelegate {
     
     //Variables for uor code
+    var resultSearchController = UISearchController()
     
     //Create this to reference our dataBase
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -19,7 +20,10 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
     //Create this to stoge our results
     var fetchResultsController : NSFetchedResultsController = NSFetchedResultsController()
     
-    //Functions 
+    @IBOutlet weak var mySearchBar: UISearchBar!
+    
+    //Functions
+    
     
     //Func to request infos from our dataBase
     func fetchRequest() -> NSFetchRequest{
@@ -35,6 +39,10 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
         fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
         return fetchResultsController
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController){
+        
     }
     
     override func viewDidLoad() {
@@ -116,20 +124,20 @@ class MyTableViewController: UITableViewController,NSFetchedResultsControllerDel
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        let managedObject: NSManagedObject = fetchResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        let managedObject: NSManagedObject = self.fetchResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
         
         if editingStyle == .Delete {
-            
             
             moc.deleteObject(managedObject)
             do{
                 try moc.save()
+                viewDidLoad()
             }catch{
                 print("Failed to save.")
                 return
             }
         }
-        self.tableView.reloadData()
+        
     }
     
 
